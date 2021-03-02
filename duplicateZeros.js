@@ -25,16 +25,29 @@
 
 // Solution:
 
+// var duplicateZeros = function(arr) {
+//     if (arr == null || arr.length == 0) return;
+//     for(let i = 0; i < arr.length; i++){
+//       if (arr[i] == 0){
+//         for(let j = arr.length -1; j>i ; j--){
+//           arr[j] = arr[j-1]
+//         }
+//         i++
+//       }
+//     }
+//   };
+
+// O(n**2) is very bad
+
 var duplicateZeros = function(arr) {
     if (arr == null || arr.length == 0) return;
-    for(let i = 0; i < arr.length; i++){
-      if (arr[i] == 0){
-        for(let j = arr.length -1; j>i ; j--){
-          arr[j] = arr[j-1]
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] === 0) {
+            arr.splice(i + 1, 0, 0);//splice inserts 0 (the last item) at index i+1, removing 0 items(second item)
+            arr.pop();//pop removes last item in array
+            i ++;//skip over the 0 that was just added or you would get 0's forever
         }
-        i++
-      }
     }
+    
   };
-
 
