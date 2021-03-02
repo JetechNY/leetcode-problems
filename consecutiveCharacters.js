@@ -49,3 +49,24 @@ var consecutiveCharacters = function(s) {
   return max
 
 }
+
+
+// also works
+
+// var maxPower = function(s) {
+//     let count = 1,
+//          max = 1,
+//         previous = ' '
+//   for (let i = 0; i < s.length; i++) {
+//     let c = s.charAt(i)
+//     if( c == previous) {
+//       ++count
+//     }else{
+//       count = 1
+//       previous = c 
+//     }
+//     max = Math.max(max, count)
+//   }
+//   return max
+
+// }
