@@ -34,25 +34,25 @@
 // Compare the squared numbers at the pointer’s location
 // Fill in the result array backwards
 
-var sortedSquares = function(nums) {
-  let result = []
-  let left = 0
-  let right = nums.length -1
-  let index = right
+var sortedSquares = function(nums) {//fills in result array backwards
+  let result = [] //set new empty array
+  let left = 0 // use pointers, left
+  let right = nums.length -1// use pointer, right
+  let index = right// set index to last value, third pointer
   
-  while(left <= right){
-    let num1 = nums[left]**2
-    let num2 = nums[right]**2
-    if(num1 > num2){
-      result[index] = num1
-      left++
+  while(left <= right){ // keep doing while left and right are different vals
+    let num1 = nums[left]**2//square left value
+    let num2 = nums[right]**2//square right value
+    if(num1 > num2){ //compare squared vals, if num1 is greater than num 2
+      result[index] = num1 //store the num1 squared val in result at index of last value, at the end
+      left++ //move left up one
     } else {
-      result[index] = num2
-      right--
+      result[index] = num2 //otherwise num2 is larger so store that value at last index instead
+      right--//move right down one
     }
-    index--
+    index--// when completed adding number to new result array move the index number down one
   }
-  return result
+  return result//return the backward added array
 };
 
 
