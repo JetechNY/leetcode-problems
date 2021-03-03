@@ -26,3 +26,25 @@ var findMaxConsecutiveOnes = function(nums) {
         } 
     return Math.max(count, max)
 };
+
+// or
+
+    let max = 0, curr = 0;
+    for (let num of nums){
+        if (num == 1){
+            curr++;
+        }
+        else{
+            if (curr > max) max = curr;
+            curr = 0;
+        }
+    }
+    if (curr > max) max = curr;
+    return max;
+};
+
+// alternative 1 line
+
+var findMaxConsecutiveOnes = function(nums) {
+    return Math.max(...nums.join('').split('0').map(x => x.length))
+};
