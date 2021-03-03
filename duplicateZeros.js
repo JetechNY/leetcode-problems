@@ -40,10 +40,10 @@
 // O(n**2) is very bad
 
 var duplicateZeros = function(arr) {
-    if (arr == null || arr.length == 0) return;
+    if (arr == null || arr.length == 0) return;//edge case check if arr exists or empty
     for(let i = 0; i < arr.length; i++) {
-        if(arr[i] === 0) {
-            arr.splice(i + 1, 0, 0);//splice inserts 0 (the last item) at index i+1, removing 0 items(second item)
+        if(arr[i] === 0) {//looking for 0's
+            arr.splice(i + 1, 0, 0);//splice inserts 0 (last arg) at index i+1(first arg), removing 0 items(second arg)
             arr.pop();//pop removes last item in array
             i ++;//skip over the 0 that was just added or you would get 0's forever
         }
