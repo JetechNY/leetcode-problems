@@ -40,3 +40,29 @@
 
 // Most programming languages have a built-in sorting algorithm that uses \mathcal{O}(n)O(n) space.
 
+var merge = function(nums1, m, nums2, n) {
+ 
+let p1=m-1
+let p2=n-1
+
+for(let p = m+n-1; p>= 0; p--){
+  if(p2< 0){
+    break
+  }
+  if(p1 >=0 && nums1[p1] > nums2[p2]){
+    nums1[p] = nums1[p1--]
+  }else{
+    nums1[p] = nums2[p2--]
+  }
+ }
+};
+
+// Complexity Analysis
+
+// Time complexity : \mathcal{O}(n + m)O(n+m).
+
+// Same as Approach 2.
+
+// Space complexity : \mathcal{O}(1)O(1).
+
+// Unlike Approach 2, we're not using an extra array.
