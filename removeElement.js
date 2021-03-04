@@ -57,3 +57,33 @@ var removeElement = function(nums, val) {
 	 * and then increment the index by 1
 	 * finally return the index which should hold the number of items in the given array which is not === val
 	*/
+
+
+const removeElement = function(nums, val) {
+  	for (let i = 0; i < nums.length; i ++) {
+    	if (nums[i] === val) {
+      	    nums.splice(i, 1);//removes 1 element at i
+            i--;
+        }
+    }
+    
+	return nums.length;
+};
+
+// or
+
+const removeElement = (nums, val)=> {
+    
+    let counter = 0 
+    
+    // for(let j of nums ){
+    //     if(j !== val){
+    //         nums[counter++] = j
+    //     }
+    // }
+    nums.forEach(j => j !== val ? nums[counter++] = j : "");
+    
+    return counter
+    
+};
+
