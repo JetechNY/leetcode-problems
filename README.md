@@ -1,3 +1,3 @@
 # leetcode-problems
 
-With solutions and explanations
+With different kinds of solutions and explanations
