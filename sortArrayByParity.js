@@ -123,3 +123,71 @@ class Solution {
 
 // Space Complexity: O(N)O(N) for the sort, depending on the built-in implementation of sort.
 
+//another solution
+
+var sortArrayByParity = function(A) {
+    let start = 0
+    let end = A.length -1
+    let result = []
+    for (i in A){
+      if(A[i] % 2 == 0){
+        result[start] = A[i]
+        start++
+      }else{
+        result[end] = A[i]
+        end--
+      }
+    }
+    return result
+  
+};
+
+
+//Case.1
+
+var sortArrayByParity = function(A) {
+    const temp = [];
+    A.forEach(v => {
+        v % 2 === 0 ? temp.unshift(v) : temp.push(v);
+    })
+    
+    return temp;
+};
+//Case.2
+
+var sortArrayByParity = function(A) {
+    return [...A.filter(v => v % 2 === 0), ...A.filter(v => v % 2 !== 0)];
+};
+//
+const sortArrayByParity = (A) => {
+  for (let i = 0, j = -1, arrLen = A.length; i < arrLen; i++) {
+    if ((A[i] & 1) === 0 && j >= 0) { [A[i], A[j++]] = [A[j], A[i]]; }
+    else if (A[i] & 1) { j = j === -1 ? i : j; }
+  }
+  return A;
+};
+
+//
+var sortArrayByParity = function(A) {
+  let i = 0;
+  let j = A.length -1;
+
+  while(i < j) {
+    if (A[i] % 2 !== 0 && A[j] % 2 === 0) {
+      let temp = A[i];
+      A[i] = A[j];
+      A[j] = temp;
+    }
+
+    if (A[i] % 2 !== 0) {
+      j--;
+    }
+
+    if(A[i] % 2 === 0) {
+      i++;
+    }
+  }
+
+  return A;
+};
+
