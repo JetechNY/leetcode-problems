@@ -20,7 +20,6 @@
 // Output: [-1]
 // Explanation: There are no elements to the right of index 0.
  
-
 // Constraints:
 
 // 1 <= arr.length <= 104
