@@ -4,8 +4,6 @@
 
 // Do the above modifications to the input array in place, do not return anything from your function.
 
- 
-
 // Example 1:
 
 // Input: [1,0,2,3,0,4,5,0]
