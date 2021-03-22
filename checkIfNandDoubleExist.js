@@ -109,7 +109,6 @@ var checkIfExist = function(arr) {
   return false;
 };
 
-
 or
 
 var checkIfExist = function(array) {
