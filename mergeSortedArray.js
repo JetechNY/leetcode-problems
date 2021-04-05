@@ -1,99 +1,99 @@
-// Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
 
-// The number of elements initialized in nums1 and nums2 are m and n respectively. You may assume that nums1 has a size equal to m + n such that it has enough space to hold additional elements from nums2.
+The number of elements initialized in nums1 and nums2 are m and n respectively. You may assume that nums1 has a size equal to m + n such that it has enough space to hold additional elements from nums2.
 
  
 
-// Example 1:
+Example 1:
 
-// Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
-// Output: [1,2,2,3,5,6]
-// Example 2:
+Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Example 2:
 
-// Input: nums1 = [1], m = 1, nums2 = [], n = 0
-// Output: [1]
+Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
  
 
-// Constraints:
+Constraints:
 
-// nums1.length == m + n
-// nums2.length == n
-// 0 <= m, n <= 200
-// 1 <= m + n <= 200
-// -109 <= nums1[i], nums2[i] <= 109
+nums1.length == m + n
+nums2.length == n
+0 <= m, n <= 200
+1 <= m + n <= 200
+-109 <= nums1[i], nums2[i] <= 109
 
-// Solution:
+Solution:
 
-// var merge = function(nums1, m, nums2, n) {
+var merge = function(nums1, m, nums2, n) {
  
-//         for (let i = 0; i < n; i++) {
-//             nums1[i + m] = nums2[i];
-//         }
-//         nums1.sort((a,b) => a-b);
-//   };
+        for (let i = 0; i < n; i++) {
+            nums1[i + m] = nums2[i];
+        }
+        nums1.sort((a,b) => a-b);
+  };
 
-// Time complexity : \mathcal{O}((n + m)\log(n + m))O((n+m)log(n+m)).
+Time complexity : \mathcal{O}((n + m)\log(n + m))O((n+m)log(n+m)).
 
-// The cost of sorting a list of length xx using a built-in sorting algorithm is \mathcal{O}(x \log x)O(xlogx). Because in this case we're sorting a list of length m + nm+n, we get a total time complexity of \mathcal{O}((n + m) \log (n + m))O((n+m)log(n+m)).
+The cost of sorting a list of length xx using a built-in sorting algorithm is \mathcal{O}(x \log x)O(xlogx). Because in this case we're sorting a list of length m + nm+n, we get a total time complexity of \mathcal{O}((n + m) \log (n + m))O((n+m)log(n+m)).
 
-// Space complexity : \mathcal{O}(n)O(n), but it can vary.
+Space complexity : \mathcal{O}(n)O(n), but it can vary.
 
-// Approach 2 : Three Pointers (Start From the Beginning)
-// Intuition
+Approach 2 : Three Pointers (Start From the Beginning)
+Intuition
 
-// Because each array is already sorted, we can achieve an \mathcal{O}(n + m)O(n+m) time complexity with the help of the two-pointer technique.
+Because each array is already sorted, we can achieve an \mathcal{O}(n + m)O(n+m) time complexity with the help of the two-pointer technique.
 
-// Algorithm
+Algorithm
 
-// The simplest implementation would be to make a copy of the values in nums1, called nums1Copy, and then use two read pointers and one write pointer to read values from nums1Copy and nums2 and write them into nums1.
+The simplest implementation would be to make a copy of the values in nums1, called nums1Copy, and then use two read pointers and one write pointer to read values from nums1Copy and nums2 and write them into nums1.
 
-// Initialize nums1Copy to be a new array containing the first m values of nums1.
-// Initialize read pointer p1 to the beginning of nums1Copy.
-// Initialize read pointer p2 to the beginning of nums2.
-// Initialize write pointer p to the beginning of nums1.
-// While p is still within nums1:
-// If nums1Copy[p1] exists and is less than or equal to nums2[p2]:
-// Write nums1Copy[p1] into nums1[p], and increment p1 by 1.
-// Else
-// Write nums2[p2] into nums1[p], and increment p2 by 1.
-// Increment p by 1.
+Initialize nums1Copy to be a new array containing the first m values of nums1.
+Initialize read pointer p1 to the beginning of nums1Copy.
+Initialize read pointer p2 to the beginning of nums2.
+Initialize write pointer p to the beginning of nums1.
+While p is still within nums1:
+If nums1Copy[p1] exists and is less than or equal to nums2[p2]:
+Write nums1Copy[p1] into nums1[p], and increment p1 by 1.
+Else
+Write nums2[p2] into nums1[p], and increment p2 by 1.
+Increment p by 1.
 
-// class Solution {
-//     public void merge(int[] nums1, int m, int[] nums2, int n) {
-//         // Make a copy of the first m elements of nums1.
-//         int[] nums1Copy = new int[m];
-//         for (int i = 0; i < m; i++) {
-//             nums1Copy[i] = nums1[i];
-//         }
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        // Make a copy of the first m elements of nums1.
+        int[] nums1Copy = new int[m];
+        for (int i = 0; i < m; i++) {
+            nums1Copy[i] = nums1[i];
+        }
 
-//         // Read pointers for nums1Copy and nums2 respectively.
-//         int p1 = 0;
-//         int p2 = 0;
+        // Read pointers for nums1Copy and nums2 respectively.
+        int p1 = 0;
+        int p2 = 0;
                 
-//         // Compare elements from nums1Copy and nums2 and write the smallest to nums1.
-//         for (int p = 0; p < m + n; p++) {
-//             // We also need to ensure that p1 and p2 aren't over the boundaries
-//             // of their respective arrays.
-//             if (p2 >= n || (p1 < m && nums1Copy[p1] < nums2[p2])) {
-//                 nums1[p] = nums1Copy[p1++];
-//             } else {
-//                 nums1[p] = nums2[p2++];
-//             }
-//         }
-//     }
-// }
+        // Compare elements from nums1Copy and nums2 and write the smallest to nums1.
+        for (int p = 0; p < m + n; p++) {
+            // We also need to ensure that p1 and p2 aren't over the boundaries
+            // of their respective arrays.
+            if (p2 >= n || (p1 < m && nums1Copy[p1] < nums2[p2])) {
+                nums1[p] = nums1Copy[p1++];
+            } else {
+                nums1[p] = nums2[p2++];
+            }
+        }
+    }
+}
 
-// Complexity Analysis
+Complexity Analysis
 
-// Time complexity : \mathcal{O}(n + m)O(n+m).
+Time complexity : \mathcal{O}(n + m)O(n+m).
 
-// We are performing n + 2 \cdot mn+2⋅m reads and n + 2 \cdot mn+2⋅m writes. Because constants are ignored in Big O notation, this gives us a time complexity of \mathcal{O}(n + m)O(n+m).
+We are performing n + 2 \cdot mn+2⋅m reads and n + 2 \cdot mn+2⋅m writes. Because constants are ignored in Big O notation, this gives us a time complexity of \mathcal{O}(n + m)O(n+m).
 
-// Space complexity : \mathcal{O}(m)O(m).
+Space complexity : \mathcal{O}(m)O(m).
 
-// We are allocating an additional array of length mm.
+We are allocating an additional array of length mm.
 
-// Most programming languages have a built-in sorting algorithm that uses \mathcal{O}(n)O(n) space.
+Most programming languages have a built-in sorting algorithm that uses \mathcal{O}(n)O(n) space.
 
 var merge = function(nums1, m, nums2, n) {
  
