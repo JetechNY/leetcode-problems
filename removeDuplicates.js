@@ -21,7 +21,6 @@
 //     print(nums[i]);
 // }
  
-
 // Example 1:
 
 // Input: nums = [1,1,2]
