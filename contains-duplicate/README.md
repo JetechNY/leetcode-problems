@@ -1,3 +1,4 @@
+[Discussion Post (created on 26/4/2021 at 0:44)](https://leetcode.com/problems/contains-duplicate/discuss/1231176/Simple-use-of-Set-(set.has-and-set.add))  
 <h2>217. Contains Duplicate</h2><h3>Easy</h3><hr><div><p>Given an integer array <code>nums</code>, return <code>true</code> if any value appears <strong>at least twice</strong> in the array, and return <code>false</code> if every element is distinct.</p>
 
 <p>&nbsp;</p>
