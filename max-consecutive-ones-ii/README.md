@@ -1,3 +1,4 @@
+[Discussion Post (created on 18/6/2021 at 19:13)](https://leetcode.com/problems/max-consecutive-ones-ii/discuss/1347189/Javascript-Sliding-Window-and-Brute-Force)  
 <h2>487. Max Consecutive Ones II</h2><h3>Medium</h3><hr><div><p>Given a binary array <code>nums</code>, return <em>the maximum number of consecutive </em><code>1</code><em>'s in the array if you can flip at most one</em> <code>0</code>.</p>
 
 <p>&nbsp;</p>
