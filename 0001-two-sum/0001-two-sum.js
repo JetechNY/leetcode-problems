@@ -5,18 +5,14 @@
  */
 
 
-
-
-
-
 var twoSum = function(nums, target) {
     if (nums.length === 2) return [0, 1];
-    const len = nums.length;
+
     let hashmap = {};
-    for(let i = 0; i < len; i++) {
+ 
+    for(let i = 0; i < nums.length; i++) {
         let diff = target - nums[i];
-        let find = hashmap[diff];
-        if(find !== undefined) return [find, i];
+        if( hashmap[diff] !== undefined) return [i, hashmap[diff]];
         else hashmap[nums[i]] = i;
     }
 }
